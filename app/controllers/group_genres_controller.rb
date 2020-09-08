@@ -1,0 +1,2 @@
+class GroupGenresController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class FanRelationshipsController < ApplicationController
+end
