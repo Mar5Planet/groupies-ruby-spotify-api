@@ -13,22 +13,56 @@
 
 <h1>Group Songs:</h1>
 <% @group.songs.each do |song| %>
-    <p> <%= song.title %> </p>
+    <p>Song title:<a href= <%= song.external_link %> > <%= song.title %></a></p>
+    <p><%= image_tag song.image_url %></p>
 <% end %>
 
-<h1>Group Comments:</h1>
+
+
+<h1>Group Discussion:</h1>
 <% @group.comments.each do |comment| %>
-    <p> <%= comment.title %> </p>
-    <p> <%= comment.content %> </p>
+    <p> <%= comment.created_at %> : <%=link_to comment.fan.name, fan_path(comment.fan)%> : <%= comment.content %></p>
 <% end %>
 
-<!--
-<%= render partial: “comments/form”, locals: {group: @ group }  %>
--->
 
-<h1>New Comment:</h1>
-<%= button_to "Create Comment", new_comment_path, method: :get%>
+<h1>New Thread:</h1>
 
-<h1>Add Song:</h1>
-<%= button_to "Add Song", new_song_path, method: :get%>
+<%= form_for Comment.new, :remote => true do |f| %>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
+
+    <p><%= f.label :content %></p>
+    <p><%= f.text_field :content %></p>
+
+    <p><%= f.label :fan %></p>
+    <p><%= f.collection_select :fan_id, Fan.all, :id, :name%></p>
+
+
+    <p><%= f.label :group %></p>
+    <p><%= f.hidden_field :group_id, :value => @group.id%></p>
+    <%= f.submit %>
+<% end %>
+
+
+
+
+<h1>Add Song Form</h1>
+
+    <% if flash[:match_error] %>
+    <h2><%= flash[:match_error] %></h2>
+    <% end %>
+ 
+  
+<%= form_for Song.new, :remote => true do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :artist %>
+    <%= f.text_field :artist %>
+
+    <p><%= f.hidden_field :group_id, :value => @group.id%></p>
+
+    <%= f.submit %>
+    
+<% end%>
 

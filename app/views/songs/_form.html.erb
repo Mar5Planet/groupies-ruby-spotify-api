@@ -1,8 +1,16 @@
 <h1>Add Song Form</h1>
+
+    <% if flash[:match_error] %>
+    <h2><%= flash[:match_error] %></h2>
+    <% end %>
+ 
+  
 <%= form_for @song do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
 
+    <%= f.label :artist %>
+    <%= f.text_field :artist %>
 
     <%= f.submit %>
     

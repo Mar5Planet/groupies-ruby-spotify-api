@@ -10,4 +10,6 @@ class Fan < ApplicationRecord
     has_many :groups, through: :fan_groups
 
     has_many :comments
+
+    has_secure_password
 end

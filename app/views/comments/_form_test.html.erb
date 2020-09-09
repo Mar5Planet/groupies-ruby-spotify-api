@@ -1,0 +1,14 @@
+<%= form_for @comment do |f| %>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
+
+    <p><%= f.label :content %></p>
+    <p><%= f.text_field :content %></p>
+
+    <p><%= f.label :fan %></p>
+    <p><%= f.collection_select :fan_id, @fans, :id, :name%></p>
+
+    <p><%= f.label :group %></p>
+    <p><%= f.collection_select :group_id, groups, :id, :name%></p>
+    <%= f.submit %>
+<% end %>
