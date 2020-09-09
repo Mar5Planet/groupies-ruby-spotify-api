@@ -1,0 +1,5 @@
+<ul><% @fans.each do |fan| %>
+    <li><%= link_to fan.name, fan_path(fan) %></li>
+    <li><%= image_tag fan.profile_image_url %></li>
+<% end %>
+</ul>

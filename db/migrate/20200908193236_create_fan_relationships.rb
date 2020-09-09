@@ -6,8 +6,6 @@ class CreateFanRelationships < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :fan_relationships, :follower_id
-    add_index :fan_relationships, :followed_id
-    add_index :fan_relationships, [:follower_id, :followed_id], unique: true
+ 
   end
 end
