@@ -1,6 +1,7 @@
 <h3>Song Index Page</h3>
 
 <ul><% @songs.each do |song| %>
-    <li><%= song.title %></li>
+    <li>Song title:<a href= <%song.external_link %> > <%= song.title %></a></li>
+    <li><%= image_tag song.image_url %></li> 
 <% end %>
 </ul>

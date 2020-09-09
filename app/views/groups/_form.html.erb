@@ -1,0 +1,13 @@
+<%= form_for @group do |f| %>
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name %></p>
+
+    <p><%= f.label :description %></p>
+    <p><%= f.text_field :description %></p>
+
+    <p><%= f.label :genre_ids %></p>
+    <p><%= f.collection_check_boxes :genre_ids, @genres, :id, :name, include_hidden: false %></p>
+
+    <%= f.submit %>
+<% end %>
+

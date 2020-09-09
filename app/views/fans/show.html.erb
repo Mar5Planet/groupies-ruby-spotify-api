@@ -1,13 +1,27 @@
 <h3>Fan Show Page</h3>
 
+<%= image_tag @fan.profile_image_url %>
+<h1>Fan Name:</h1>
+<h2><%= @fan.name %></h2>
 
-Fan Name:
-<h1><%= @fan.name %></h1>
+<h4>Fan Location:</h4>
+<p><%= @fan.location %></p>
 
-Fan Location:
-<h2><%= @fan.location %></h2>
+<h4>Followers:</h4>
+<p><%= @fan.followers.count %></p>
 
-Fan Picture:
-<img src= <%= @fan.profile_image_url %> >
+<h4>Follow?</h4>
+<p>need a method here</p>
 
-<%= image_tag fan.profile_image_url %>
+<%= button_to("Follow test-goes to indx", fans_path, method: :get) %>
+
+Edit (if profile == user profile):
+<%= button_to("Edit test-goes to indx", fans_path, method: :get) %>
+
+<%= button_to("Fan Index", fans_path, method: :get) %>
+
+<h3>My Groups</h3> 
+<% @fan.groups.each do |group| %>
+    <h3><%= link_to group.name, groups_path(group) %></h3>
+    <h3><%= group.description %></h3>
+<% end %>
