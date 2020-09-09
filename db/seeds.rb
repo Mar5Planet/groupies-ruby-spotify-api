@@ -71,19 +71,9 @@ require 'faker'
 #     t.datetime "updated_at", precision: 6, null: false
 #   end
 
-# 40.times do 
-# Genre.create(name: Faker::Music.genre)
-# end 
-
-Faker::Food.fruits
-# Song.destroy_all
-# Fan.destroy_all
-# Group.destroy_all
-# FanGroup.destroy_all
-# Comment.destroy_all
-# GroupSong.destroy_all
-# GroupGenre.destroy_all
-# GenreSong.destroy_all
+40.times do 
+Genre.create(name: Faker::Music.genre)
+end 
 
 20.times do 
     random_song= RSpotify::Track.search(Faker::Music::Prince.song)
@@ -95,7 +85,7 @@ end
 end
 
 10.times do
-    Group.create(name: Faker::Quote.singular_siegler)
+    Group.create(name: Faker::Quote.singular_siegler, description: Faker::Quotes::Rajnikanth.joke)
 end
 
 30.times do

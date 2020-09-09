@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 2020_09_08_204816) do
     t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_fan_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_fan_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_fan_relationships_on_follower_id"
   end
 
   create_table "fans", force: :cascade do |t|
@@ -79,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_204816) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
