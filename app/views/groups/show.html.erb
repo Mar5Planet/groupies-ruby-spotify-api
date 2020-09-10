@@ -1,5 +1,7 @@
 <h3>Group Show Page</h3>
 
+<%= Fan.find(session[:fan_id]).name %>
+
 <h1>Group Name:</h1>
 <h2><%= @group.name %></h2>
 
@@ -25,21 +27,13 @@
 <% end %>
 
 
-<h1>New Thread:</h1>
 
 <%= form_for Comment.new, :remote => true do |f| %>
-    <p><%= f.label :title %></p>
-    <p><%= f.text_field :title %></p>
 
-    <p><%= f.label :content %></p>
     <p><%= f.text_field :content %></p>
 
-    <p><%= f.label :fan %></p>
-    <p><%= f.collection_select :fan_id, Fan.all, :id, :name%></p>
-
-
-    <p><%= f.label :group %></p>
-    <p><%= f.hidden_field :group_id, :value => @group.id%></p>
+    <%= f.hidden_field :fan_id, :value => session[:fan_id] %>
+    <%= f.hidden_field :group_id, :value => @group.id%>
     <%= f.submit %>
 <% end %>
 
@@ -59,8 +53,8 @@
 
     <%= f.label :artist %>
     <%= f.text_field :artist %>
-
-    <p><%= f.hidden_field :group_id, :value => @group.id%></p>
+    
+    <%= f.hidden_field :group_id, :value => @group.id%>
 
     <%= f.submit %>
     

@@ -1,5 +1,7 @@
 <h3>Fan Show Page</h3>
 
+<%= button_to("Logout", controller: "sessions", action: "destroy", method: :get) %>
+
 <%= image_tag @fan.profile_image_url %>
 <h1>Fan Name:</h1>
 <h2><%= @fan.name %></h2>
@@ -11,9 +13,9 @@
 <p><%= @fan.followers.count %></p>
 
 <h4>Follow?</h4>
-<p>need a method here</p>
+BUTTON GOES HERE
+Should show "already followed" if button has been clicked
 
-<%= button_to("Follow test-goes to indx", fans_path, method: :get) %>
 
 Edit (if profile == user profile):
 <%= button_to("Edit test-goes to indx", fans_path, method: :get) %>
@@ -25,3 +27,7 @@ Edit (if profile == user profile):
     <h3><%= link_to group.name, groups_path(group) %></h3>
     <h3><%= group.description %></h3>
 <% end %>
+
+<h4>Explore Groups</h4>
+BUTTON GOES HERE
+Should go to group index page

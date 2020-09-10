@@ -12,4 +12,11 @@ class Fan < ApplicationRecord
     has_many :comments
 
     has_secure_password
+
+    def follow(follower_id)
+        FanRelationship.create(follower_id: follower_id, followed_id: self.id)
+    end 
+
+    def followed?(followed_id)
+    end
 end

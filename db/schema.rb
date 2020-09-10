@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_204816) do
     t.integer "fan_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
     t.string "content"
     t.index ["fan_id"], name: "index_comments_on_fan_id"
     t.index ["group_id"], name: "index_comments_on_group_id"
@@ -41,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_204816) do
     t.string "name"
     t.string "location"
     t.string "profile_image_url"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

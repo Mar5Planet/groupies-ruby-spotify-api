@@ -18,11 +18,11 @@ class SongsController < ApplicationController
         if @song.artist == song_params[:artist]
             @song.save
 
-            gs = GroupSong.create(:group_id => song_params[:group_id], :song_id => @song.id)
-            redirect_to group_path(gs.group)
+            @gs = GroupSong.create(:group_id => song_params[:group_id], :song_id => @song.id)
+            redirect_to group_path(@gs.group)
         else 
             flash[:match_error] = "Song/Artist match not found did you mean #{@song.title} by #{@song.artist}?"
-            redirect_to new_song_path
+            redirect_to group_path(@gs.group)
         end 
 
         

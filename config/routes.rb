@@ -9,5 +9,12 @@ Rails.application.routes.draw do
   resources :fan_groups
   resources :groups
   resources :fans
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get "/signin" => "sessions#new", as: "signin"
+  post "/login" => "sessions#create"
+
+  post "/logout" => "sessions#destroy"
+
+  root "welcome#home"
+
 end

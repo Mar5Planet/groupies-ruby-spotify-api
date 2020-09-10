@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+    before_action :require_logged_in_fan
 
     def index
         @groups = Group.all

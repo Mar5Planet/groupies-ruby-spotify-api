@@ -1,0 +1,21 @@
+<h1>Form for New Fan</h1>
+
+
+<%= form_for @fan, controller: 'fans', action: 'create' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label "Profile Photo" %>
+  <%= f.text_field :profile_image_url %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "create" %>
+<% end %>

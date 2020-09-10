@@ -4,6 +4,7 @@ class CreateFans < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :location
       t.string :profile_image_url
+      t.string :password_digest
 
       t.timestamps
     end

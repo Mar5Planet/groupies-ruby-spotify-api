@@ -12,7 +12,7 @@ end
 end 
 
 12.times do 
-    Fan.create(name: Faker::Superhero.name, location: Faker::Address.city, profile_image_url: Faker::Fillmurray.image(grayscale: false, width: 100, height: 200))
+    Fan.create(name: Faker::Superhero.name, location: Faker::Address.city, profile_image_url: Faker::Fillmurray.image(grayscale: false, width: 100, height: 200), password_digest: 12345)
 end
 
 10.times do
@@ -24,7 +24,7 @@ end
 end
 
 20.times do
-    Comment.create(fan_id: Fan.all.sample.id, group_id: Group.all.sample.id, title: Faker::Coin.name, content: Faker::Movies::PrincessBride.quote)
+    Comment.create(fan_id: Fan.all.sample.id, group_id: Group.all.sample.id, content: Faker::Movies::PrincessBride.quote)
 end
 
 20.times do
