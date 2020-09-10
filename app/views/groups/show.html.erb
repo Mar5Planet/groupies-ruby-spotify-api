@@ -21,6 +21,10 @@
 
 
 
+<!--Check to see if sessions fan is a member of the group-->
+<!--If not, display "Join Group" button-->
+<!--If yes, display Group Discussion/Comments/-->
+
 <h1>Group Discussion:</h1>
 <% @group.comments.each do |comment| %>
     <p> <%= comment.created_at %> : <%=link_to comment.fan.name, fan_path(comment.fan)%> : <%= comment.content %></p>

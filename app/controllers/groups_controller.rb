@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-    before_action :require_logged_in_fan
+    before_action :require_logged_in_fan, except: [:index, :show]
 
     def index
         @groups = Group.all
@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
 
     def show
         @group = get_group
+        @viewer = Fan.find(session[:fan_id])
     end
 
     def create

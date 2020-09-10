@@ -1,7 +1,8 @@
-<h1>Welcome to the Site!</h1>
+<%= image_tag 'Engage yourself in live music discussions.png', class: 'home-img' %>
 
-<-LOGO GOES HERE->
+<div class= "home-btn-div"> 
+<%= button_to("Sign in", signin_path, method: :get, class: "btn btn-outline-dark btn-lg home-btn") %>
+<%= button_to("Sign up", new_fan_path, method: :get, class: "btn btn-lg btn-outline-info home-btn") %>
+</div>
 
-<%= button_to("Sign-in", signin_path, method: :get) %>
-
-<%= button_to("Sign-up", new_fan_path, method: :get) %>
+<!--= button_to("Click Me", { action: "new" }, class: "btn btn-primary")-->

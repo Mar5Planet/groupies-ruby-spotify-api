@@ -13,3 +13,67 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+     font-family: 'Roboto', sans-serif;
+ }
+/* Navigation Bar */
+.navbar {
+    padding: 2% 5%;
+    margin-bottom: 0;
+  }
+  
+  
+  .navbar-toggler {
+    border: none;
+  }
+  .navbar-nav {
+    width: 50%;
+  }
+
+  .bg-dark {
+      background-color: black !important;
+  }
+  
+  
+  .nav-link {
+    margin-right: 5%;
+    text-transform: uppercase;
+    color: white !important;
+  }
+  
+  .nav-link:hover {
+    color: #ff6600 !important;
+  }
+
+  .nav-img {
+      width: 160px;
+      display: block;
+  }
+
+/* Home Page */
+.home-img {
+    width: 100%;
+    margin-top: -5%;
+}
+
+.home-btn-div {
+    padding: 5%;
+    margin: auto;
+    text-align: center;
+ }
+
+
+.home-btn-div .button_to {
+    display: inline-block;
+    padding: 2%;
+    
+}
+
+.home-btn {
+    width: 300px !important;
+    height: 70px;
+    font-weight: 900;
+    font-size: 1.6rem;
+}
+
