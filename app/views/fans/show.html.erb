@@ -13,8 +13,13 @@
 <p><%= @fan.followers.count %></p>
 
 <h4>Follow?</h4>
-BUTTON GOES HERE
-Should show "already followed" if button has been clicked
+<% if @same_viewer%>
+<% elsif @followed %>
+    <%= button_to("Unfollow", unfollow_path(@fan), method: :get) %>
+<% else %>
+    <%= button_to("Follow", follow_path(@fan), method: :get) %>
+<% end %>
+
 
 
 Edit (if profile == user profile):

@@ -11,10 +11,24 @@ class FansController < ApplicationController
     
     def show
         @fan = get_fan
-        @follower = Fan.find(session[:fan_id])
- 
-        @follow = @fan.follow(@follower.id)
+        @viewing_fan = Fan.find(session[:fan_id])
+        @followed = @viewing_fan.already_follows?(@fan)
+        @same_viewer = (@fan == @viewing_fan)
     end
+
+    def follow
+        @fan = get_fan
+        @viewing_fan = Fan.find(session[:fan_id])
+        @viewing_fan.follow(@fan)
+        redirect_to fan_path(@fan)
+    end
+
+    def unfollow 
+        @fan = get_fan
+        @viewing_fan = Fan.find(session[:fan_id])
+        @viewing_fan.unfollow(@fan)
+        redirect_to fan_path(@fan)
+    end 
 
     def create
         @fan = Fan.new(fan_params)

@@ -11,4 +11,18 @@ class Group < ApplicationRecord
     has_many :group_genres
     has_many :genres, through: :group_genres
 
+    def join_group(fan)
+        FanGroup.create(fan_id: fan.id, group_id: self.id)
+    end 
+
+    def leave_group(fan)
+        relation= FanGroup.find_by(group_id: self.id, fan_id: fan.id)
+        relation.destroy
+    end
+
+    def has_member?(fan)
+        fan.groups.find {|group| group.id == self.id}
+    end
+
+      
 end

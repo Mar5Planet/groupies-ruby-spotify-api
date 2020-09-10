@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :fans
 
   get "/signin" => "sessions#new", as: "signin"
+  get "/fans/:id/follow" => "fans#follow", as: "follow"
+  get "/fans/:id/unfollow" => "fans#unfollow", as: "unfollow"
   post "/login" => "sessions#create"
 
   post "/logout" => "sessions#destroy"

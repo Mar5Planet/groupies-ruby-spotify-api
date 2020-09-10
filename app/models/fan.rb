@@ -13,10 +13,19 @@ class Fan < ApplicationRecord
 
     has_secure_password
 
-    def follow(follower_id)
-        FanRelationship.create(follower_id: follower_id, followed_id: self.id)
+
+    def follow(followed_fan)
+        FanRelationship.create(follower_id: self.id, followed_id: followed_fan.id)
     end 
 
-    def followed?(followed_id)
+    def unfollow(followed_fan)
+        relation= FanRelationship.find_by(follower_id: self.id, followed_id: followed_fan.id)
+        relation.destroy
     end
+
+    def already_follows?(show_fan)
+        show_fan.followers.find {|follower| follower.follower_id == self.id}
+    end
+
+    
 end
