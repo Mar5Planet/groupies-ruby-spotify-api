@@ -26,7 +26,7 @@ class Group < ApplicationRecord
 
     def card_image_url
         if !self.songs.empty?
-            self.songs.first.image_url
+            self.songs.last.image_url
         else
             url = "https://pbs.twimg.com/profile_images/956698671751446528/J3ZUMcpq_400x400.jpg"
         end

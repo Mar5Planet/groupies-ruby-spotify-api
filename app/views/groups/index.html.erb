@@ -3,7 +3,7 @@
 
     <div class="groups-page-view">
         <div class="row">
-        <% @groups.each do |group| %>
+        <% @groups.reverse.each do |group| %>
 
         <div class="card col-lg-4" style="width: 18rem;">
                 <img src="<%= group.card_image_url %>" class="card-img-top" alt="...">
