@@ -24,7 +24,8 @@
     </div>
 
 
-    <div class="groupie-comment-section"
+    <div class="groupie-comment-section" >
+    <h3> Comment Section </h3>
         <% @group.comments.each do |comment| %>
             <p> <%= comment.created_at.strftime("%b %e,%l:%M %p") %> : <%=link_to comment.fan.name, fan_path(comment.fan)%> : <%= comment.content %></p>
         <% end %>
@@ -32,7 +33,7 @@
 
 
 
-    <div class="group-page-bottom">
+    
         <% if !@group.has_member?(@current_fan) %>
             <%= button_to("Follow Group", add_path, method: :get, class: "btn btn-info") %>
 
