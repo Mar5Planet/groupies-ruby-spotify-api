@@ -2,9 +2,11 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
   
     before_action :current_fan
+
+
     
     def current_fan
-      @fan = (Fan.find_by(id: session[:fan_id])) || Fan.new
+      @current_fan = (Fan.find_by(id: session[:fan_id])) || Fan.new
     end
   
     def fan_logged_in?
