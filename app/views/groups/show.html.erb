@@ -1,71 +1,81 @@
-<div class="group-page-top">
-    <h1><%= "Welcome to #{@group.name} group" %></h1>
-    <p><%= @group.description %></p>
-    <h1>Genres:</h1>
-    <% @group.genres.each do |genre| %>
-        <p> <%= genre.name %> </p>
-    <% end %>
-</div>
-
-
-<div class= "group-songs">
-    <h1>Group Songs:</h1>
-    <div class="row">
-    <% @group.songs.each do |song| %>
-        <div class="card col-lg-2" style="width: 18rem;">
-    <img src="<%=song.image_url %>" class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text"><a href= <%= song.external_link %> > <%= song.title %></a></p>
-    </div>
-    </div>
-    <% end %>
-    </div>
-</div>
-
-
-<div class="groupie-comment-section"
-    <% @group.comments.each do |comment| %>
-        <p> <%= comment.created_at %> : <%=link_to comment.fan.name, fan_path(comment.fan)%> : <%= comment.content %></p>
-    <% end %>
-</div>
-
-
-
-<div class="group-page-bottom">
-    <% if !@group.has_member?(@fan) %>
-        <%= button_to("Follow Group", add_path, method: :get) %>
-
-    <!--Only Logged In Users Can Access Below-->
-    <% else %>
-
-        <%= form_for Comment.new, :remote => true do |f| %>
-
-            <p><%= f.text_field :content %></p>
-
-            <%= f.hidden_field :fan_id, :value => session[:fan_id] %>
-            <%= f.hidden_field :group_id, :value => @group.id%>
-            <%= f.submit "Add Comment" %>
-            
+<div class="group-show-page">
+    <div class="group-page-top">
+        <h1> Welcome to </h1> <h1 class="group-name"><%= @group.name%></h1> <h1>group! </h1>
+        <h5><%= @group.description %></h5>
+        <h2>Genres</h2>
+        <% @group.genres.each do |genre| %>
+            <p> <%= genre.name %> </p>
         <% end %>
+    </div>
 
-        <h1 class="add-song-header">Add Song: </h1>
 
-            <% if flash[:match_error] %>
-            <h2><%= flash[:match_error] %></h2>
+    <div class= "group-songs">
+        <h1>Tracks</h1>
+        <div class="row">
+        <% @group.songs.each do |song| %>
+            <div class="card col-lg-3" style="width: 18rem;">
+        <img src="<%=song.image_url %>" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text"> <a href= <%= song.external_link %> > <%= song.title %></a></p>
+        </div>
+        </div>
+        <% end %>
+        </div>
+    </div>
+
+
+    <div class="groupie-comment-section"
+        <% @group.comments.each do |comment| %>
+            <p> <%= comment.created_at %> : <%=link_to comment.fan.name, fan_path(comment.fan)%> : <%= comment.content %></p>
+        <% end %>
+    </div>
+
+
+
+    <div class="group-page-bottom">
+        <% if !@group.has_member?(@fan) %>
+            <%= button_to("Follow Group", add_path, method: :get, class: "btn btn-info") %>
+
+        <!--Only Logged In Users Can Access Below-->
+        <% else %>
+
+            <%= form_for Comment.new, :remote => true do |f| %>
+
+
+                <div class= "form-group">
+
+                    <p><%= f.text_field :content, class: "form-control"%></p>
+                </div>             
+                <%= f.hidden_field :fan_id, :value => session[:fan_id] %>
+                <%= f.hidden_field :group_id, :value => @group.id%>
+                <%= f.submit "Add Comment", class: "btn btn-info" %>
+                
             <% end %>
-        
-        <%= form_for Song.new, :remote => true do |f| %>
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+            <div class="create-song">
+            <h1 class="add-song-header">Add Song </h1>
 
-            <%= f.label :artist %>
-            <%= f.text_field :artist %>
+                <% if flash[:match_error] %>
+                <h2><%= flash[:match_error] %></h2>
+                <% end %>
             
-            <%= f.hidden_field :group_id, :value => @group.id%>
+            <%= form_for Song.new, :remote => true do |f| %>
+                <div class="form-group">
+                    <%= f.label :title %>
+                    <%= f.text_field :title, class: "form-control"%>
+                </div>
 
-            <%= f.submit %>
-            
-        <% end%>
-        <%= button_to("Leave Group", remove_path, method: :get) %>
-    <% end %>
+                <div class="form-group">
+                     <%= f.label :artist %>
+                     <%= f.text_field :artist, class: "form-control" %>
+                </div>
+
+                <%= f.hidden_field :group_id, :value => @group.id%>
+
+                <%= f.submit class: "btn btn-light btn-lg"%>
+                
+            <% end%>
+            </div>
+            <%= button_to("Leave Group", remove_path, method: :get, class: "btn btn-dark") %>
+        <% end %>
+    </div>
 </div>

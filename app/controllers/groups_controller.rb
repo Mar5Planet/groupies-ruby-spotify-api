@@ -23,6 +23,7 @@ class GroupsController < ApplicationController
             gg = @group.group_genres.build(group_id: @group.id, genre_id: gi.to_i)
             gg.save
         end
+        @group.add_fan(current_fan)
         redirect_to group_path(@group)
 
     end
@@ -40,7 +41,7 @@ class GroupsController < ApplicationController
         @group.remove_fan(@fan)
         redirect_to group_path(@group)
     end 
-    
+
     def edit
     end
 

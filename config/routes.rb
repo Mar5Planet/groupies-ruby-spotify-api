@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   post "/login" => "sessions#create"
 
-  post "/logout" => "sessions#destroy"
+  post "/logout" => "sessions#destroy", as: "logout"
 
   root "welcome#home"
 

@@ -44,3 +44,92 @@
     width: 30%;
     margin-bottom: 3%;
 }
+
+// Group show page
+
+.group-show-page {
+    padding: 5%;
+}
+
+.group-page-top {
+    margin: 2% 0 6%;
+}
+
+.group-page-top h1 {
+    color: black;
+    display: inline-block;
+}
+
+.group-page-top .group-name {
+    color: #5bc0de;
+    margin: 0 1%;
+}
+.group-page-top h5 {
+    margin: 2% 0 5%;
+    font-weight: 300;
+}
+
+.group-page-top h2 {
+    color: rgb(255, 115, 0);
+    font-weight: 300;
+}
+
+.group-page-top p {
+    font-style: italic;
+    font-weight: 200;
+    display: inline-block;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.group-songs {
+    text-align: center;
+}
+
+.group-songs .row {
+    text-align: center;
+}
+
+
+.group-songs .card {
+    border: none;
+}
+
+.group-songs h1 {
+    margin-bottom: 4%;
+    font-style: italic;
+}
+
+.groupie-comment-section {
+    margin: 4% 0;
+    background-color: rgb(255, 115, 0);
+    color: white;
+    padding: 5%;
+    border-radius: 15px;
+    -webkit-box-shadow: 11px 10px 24px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 11px 10px 24px 0px rgba(0,0,0,0.75);
+    box-shadow: 11px 10px 24px 0px rgba(0,0,0,0.75);  
+    margin: 10% 0 5%;  
+}
+
+.groupie-comment-section a {
+    color: black;
+}
+
+.new_comment .form-group {
+    display: inline-block;
+    width: 30%;
+    margin-right: 2%;
+}
+
+.create-song {
+    background-color: rgba(170, 170, 170, 0.589);
+    border-radius: 15px;
+    margin: 20%;
+    padding: 5%;
+}
+
+.create-song h1 {
+    font-weight: 200;
+    margin-bottom: 10%;
+}
