@@ -1,38 +1,36 @@
-<h3>Fan Show Page</h3>
 
-<%= button_to("Logout", controller: "sessions", action: "destroy", method: :get) %>
+<div class= "profile-info">
+    <%= image_tag @fan.profile_image_url, class: "user-img" %>
+    
+    <div class="profile-text">
+        <h5> Groupie </h5>
+        <h2><%= "#{@fan.name}'s Profile" %></h2>
+        <h4> <%= "location: #{@fan.location}" %></h4>
+        <% if @same_viewer%>
+        <% elsif @followed %>
+            <%= button_to("Unfollow", unfollow_path(@fan), method: :get, class: "btn btn-info") %>
+        <% else %>
+            <%= button_to("Follow", follow_path(@fan), method: :get, class: "btn btn-info") %>
+        <% end %>
+        <p><%= pluralize(@fan.followers.count, "follower") %></p>
+    </div>
+</div>
 
-<%= image_tag @fan.profile_image_url %>
-<h1>Fan Name:</h1>
-<h2><%= @fan.name %></h2>
+ 
 
-<h4>Fan Location:</h4>
-<p><%= @fan.location %></p>
+<div class="profile-groups">
+    <h4>User's Groups:</h4>
+    <div class="row">
+    <% @fan.groups.each do |group| %>
 
-<h4>Followers:</h4>
-<p><%= @fan.followers.count %></p>
+       <div class="card col-lg-4" style="width: 18rem;">
+            <img src="<%= group.card_image_url %>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= link_to group.name, group_path(group) %></h5>
+                <p class="card-text"><%= group.description %></p>
+            </div>
+        </div>
 
-<h4>Follow?</h4>
-<% if @same_viewer%>
-<% elsif @followed %>
-    <%= button_to("Unfollow", unfollow_path(@fan), method: :get) %>
-<% else %>
-    <%= button_to("Follow", follow_path(@fan), method: :get) %>
-<% end %>
-
-
-
-Edit (if profile == user profile):
-<%= button_to("Edit test-goes to indx", fans_path, method: :get) %>
-
-<%= button_to("Fan Index", fans_path, method: :get) %>
-
-<h3>My Groups</h3> 
-<% @fan.groups.each do |group| %>
-    <h3><%= link_to group.name, groups_path(group) %></h3>
-    <h3><%= group.description %></h3>
-<% end %>
-
-<h4>Explore Groups</h4>
-BUTTON GOES HERE
-Should go to group index page
+    <% end %>
+    </div>
+</div>

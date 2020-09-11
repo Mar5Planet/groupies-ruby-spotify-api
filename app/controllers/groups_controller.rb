@@ -27,6 +27,20 @@ class GroupsController < ApplicationController
 
     end
 
+    def add_fan
+        @group = get_group
+        @fan = Fan.find(session[:fan_id])
+        @group.add_fan(@fan)
+        redirect_to group_path(@group)
+    end
+
+    def remove_fan
+        @group = get_group
+        @fan = Fan.find(session[:fan_id])
+        @group.remove_fan(@fan)
+        redirect_to group_path(@group)
+    end 
+    
     def edit
     end
 

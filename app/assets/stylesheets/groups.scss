@@ -1,3 +1,46 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+.group-page {
+    text-align: center;
+}
+
+.group-page .button_to{
+    display: inline-block;
+    padding: 5%;
+}
+
+.group-homepage-btn {
+    width: 500px;
+    height: 65px;
+}
+
+// New Group
+
+.new_group {
+    padding: 5%;
+}
+
+.form-check {
+    padding: 0;
+}
+
+.form-check .form-check-label {
+    display: block;
+    padding: 0;
+    margin: 4% 0;
+}
+
+.form-check input {
+    margin: 1%;
+
+
+}
+
+.new_group .form-control {
+    width: 30%;
+    margin-bottom: 3%;
+}

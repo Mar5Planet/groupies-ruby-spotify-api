@@ -1,3 +1,68 @@
 // Place all the styles related to the Fans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.new_fan {
+    padding: 5%;
+}
+
+.new_fan input {
+    width: 30%;
+    margin-bottom: 3%;
+}
+
+.edit_fan {
+    padding: 5%;
+}
+
+// Fan Profile Page
+
+.profile-info {
+    padding: 5%;
+   
+}
+
+.profile-info .user-img {
+    float: left;
+    margin-right: 4%;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+.profile-info h5 {
+    font-weight: 200;
+    font-style: italic;
+}
+
+.profile-info h4 {
+    font-weight: 200;
+    font-size: 1.2rem;
+    padding: 2% 0;
+}
+
+.profile-info .button_to {
+    display: inline;
+    margin-right: 1%;
+}
+
+.profile-info p {
+    display: inline;
+    font-weight: 100;
+    color: grey
+}
+
+.profile-groups {
+    padding: 5%;
+    text-align: center;
+}
+
+.profile-groups h4 {
+    margin: 2% 0 5%;
+}
+
+.card-title a{
+    text-decoration: none !important;
+    color: rgb(255, 115, 0);
+    
+}

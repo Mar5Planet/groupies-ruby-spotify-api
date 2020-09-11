@@ -1,6 +1,20 @@
-<h1> Groups: </h1>
-<ul><% @groups.each do |group| %>
-    <li><%= link_to group.name, group_path(group)%></li>
-<% end %>
-</ul>
-<%= button_to "Create Group", new_group_path, method: :get  %>
+<div class= "group-page">
+    <%= button_to "Create Group", new_group_path, method: :get, class: "group-homepage-btn btn btn-lg btn-info"  %>
+
+    <div class="groups-page-view">
+        <div class="row">
+        <% @groups.each do |group| %>
+
+        <div class="card col-lg-4" style="width: 18rem;">
+                <img src="<%= group.card_image_url %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= link_to group.name, group_path(group) %></h5>
+                    <p class="card-text"><%= group.description %></p>
+                </div>
+            </div>
+
+        <% end %>
+        </div>
+    </div>
+
+</div>
