@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def new
-        render :layout => "welcome"
+        # render :layout => "welcome"
     end
 
     def create

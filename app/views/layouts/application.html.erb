@@ -24,16 +24,18 @@
   <%= image_tag 'groupie_logo.png', class: 'nav-img' %>
   </a>
 
+<% if @current_fan.id != nil %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-link active" href=<%= fan_path(Fan.find(session[:fan_id])) %>>My Profile <span class="sr-only">(current)</span></a>
+      <a class="nav-link active" href=<%= fan_path(@current_fan) %>>My Profile <span class="sr-only">(current)</span></a>
       <a class="nav-link" href="/groups">Groups </a>
       <%= link_to "Logout", logout_path, method: :post, class: "nav-link"  %>
     </div>
   </div>
+<% end %>
 </nav>
 <br>
     <%= yield %>

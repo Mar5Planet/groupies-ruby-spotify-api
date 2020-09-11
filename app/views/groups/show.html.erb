@@ -33,7 +33,7 @@
 
 
     <div class="group-page-bottom">
-        <% if !@group.has_member?(@fan) %>
+        <% if !@group.has_member?(@current_fan) %>
             <%= button_to("Follow Group", add_path, method: :get, class: "btn btn-info") %>
 
         <!--Only Logged In Users Can Access Below-->

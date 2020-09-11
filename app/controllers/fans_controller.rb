@@ -6,7 +6,7 @@ class FansController < ApplicationController
     end 
 
     def new
-        render :layout => "welcome"
+        # render :layout => "welcome"
         @fan = Fan.new
     end
     
