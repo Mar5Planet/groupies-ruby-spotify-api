@@ -1,6 +1,6 @@
 # README
 
-Welcome to Groupies Ruby CLI application. 
+Welcome to Groupies Ruby Backend application. 
 
 Install and run project by running:
 bundle install
