@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Groupies Ruby CLI application. 
 
-Things you may want to cover:
+Install and run project by running:
+bundle install
 
-* Ruby version
+Rails db:migrate db:seed
 
-* System dependencies
+Rails s
 
-* Configuration
+Groupie is a Ruby on Rails backend application that utilizes the Spotify API. As a community-based platform, Groupie allows users to join and create various music genre groups, add music to the groups, and engage in musical discussion. Groupie songs are directly linked to Spotify, which allows users to favorite and add it to their Spotify playlists.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Pair programming collaboration with anickel101
